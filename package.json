@@ -1,0 +1,504 @@
+{
+  "name": "cleanforce",
+  "displayName": "CleanForce - Salesforce Metadata Cleanup",
+  "description": "🧹⚡ The ultimate Salesforce metadata cleanup tool. Remove field references, clean profiles & permission sets, generate destructive changes, analyze dependencies, and more. Save hours of manual work!",
+  "version": "1.2.2",
+  "publisher": "cleanforce",
+  "author": {
+    "name": "CleanForce Team"
+  },
+  "license": "MIT",
+  "icon": "images/icon.png",
+  "galleryBanner": {
+    "color": "#00A1E0",
+    "theme": "dark"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cleanforce/cleanforce-vscode"
+  },
+  "bugs": {
+    "url": "https://github.com/cleanforce/cleanforce-vscode/issues"
+  },
+  "homepage": "https://github.com/cleanforce/cleanforce-vscode#readme",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Other",
+    "Formatters",
+    "Linters"
+  ],
+  "keywords": [
+    "salesforce",
+    "sfdx",
+    "apex",
+    "field removal",
+    "permission sets",
+    "profiles",
+    "destructive changes",
+    "metadata cleanup",
+    "cleanforce",
+    "field permissions",
+    "org cleanup",
+    "devops",
+    "salesforce dx",
+    "metadata",
+    "xml cleanup"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "cleanforce.openDashboard",
+        "title": "CleanForce: Open Dashboard",
+        "icon": "$(dashboard)"
+      },
+      {
+        "command": "cleanforce.removeFields",
+        "title": "CleanForce: Remove Field References",
+        "icon": "$(trash)"
+      },
+      {
+        "command": "cleanforce.removeFieldsFromFile",
+        "title": "CleanForce: Remove Field References from This File",
+        "icon": "$(trash)"
+      },
+      {
+        "command": "cleanforce.generateDestructiveChanges",
+        "title": "CleanForce: Generate Destructive Changes XML",
+        "icon": "$(file-code)"
+      },
+      {
+        "command": "cleanforce.scanForReferences",
+        "title": "CleanForce: Scan for Field References",
+        "icon": "$(search)"
+      },
+      {
+        "command": "cleanforce.deleteFieldFiles",
+        "title": "CleanForce: Delete Field Metadata Files",
+        "icon": "$(trash)"
+      },
+      {
+        "command": "cleanforce.analyzeUnusedFields",
+        "title": "CleanForce: Analyze Unused Fields",
+        "icon": "$(graph)"
+      },
+      {
+        "command": "cleanforce.cleanupProfiles",
+        "title": "CleanForce: Cleanup Invalid Profile References",
+        "icon": "$(sparkle)"
+      },
+      {
+        "command": "cleanforce.cleanupPermissionSets",
+        "title": "CleanForce: Cleanup Invalid Permission Set References",
+        "icon": "$(sparkle)"
+      },
+      {
+        "command": "cleanforce.compareMetadata",
+        "title": "CleanForce: Compare Metadata Between Orgs",
+        "icon": "$(diff)"
+      },
+      {
+        "command": "cleanforce.bulkFieldOperations",
+        "title": "CleanForce: Bulk Field Operations",
+        "icon": "$(list-unordered)"
+      },
+      {
+        "command": "cleanforce.importFieldList",
+        "title": "CleanForce: Import Field List from CSV/Excel",
+        "icon": "$(file-add)"
+      },
+      {
+        "command": "cleanforce.exportReport",
+        "title": "CleanForce: Export Cleanup Report",
+        "icon": "$(export)"
+      },
+      {
+        "command": "cleanforce.scheduleCleanup",
+        "title": "CleanForce: Schedule Automated Cleanup",
+        "icon": "$(calendar)"
+      },
+      {
+        "command": "cleanforce.undoLastOperation",
+        "title": "CleanForce: Undo Last Operation",
+        "icon": "$(discard)"
+      },
+      {
+        "command": "cleanforce.viewHistory",
+        "title": "CleanForce: View Operation History",
+        "icon": "$(history)"
+      },
+      {
+        "command": "cleanforce.quickClean",
+        "title": "CleanForce: Quick Clean (Smart Detect & Remove)",
+        "icon": "$(zap)"
+      },
+      {
+        "command": "cleanforce.validateMetadata",
+        "title": "CleanForce: Validate Metadata Integrity",
+        "icon": "$(check)"
+      },
+      {
+        "command": "cleanforce.removeApexReferences",
+        "title": "CleanForce: Remove Apex Class/Trigger References",
+        "icon": "$(code)"
+      },
+      {
+        "command": "cleanforce.removeObjectReferences",
+        "title": "CleanForce: Remove Object References",
+        "icon": "$(database)"
+      },
+      {
+        "command": "cleanforce.removeFlowReferences",
+        "title": "CleanForce: Remove Flow References",
+        "icon": "$(git-merge)"
+      },
+      {
+        "command": "cleanforce.removeLayoutReferences",
+        "title": "CleanForce: Remove Layout Item References",
+        "icon": "$(layout)"
+      },
+      {
+        "command": "cleanforce.cleanupLayouts",
+        "title": "CleanForce: Cleanup Page Layouts",
+        "icon": "$(layout)"
+      },
+      {
+        "command": "cleanforce.cleanupFlexiPages",
+        "title": "CleanForce: Cleanup Lightning Pages (FlexiPages)",
+        "icon": "$(zap)"
+      },
+      {
+        "command": "cleanforce.cleanupRecordTypes",
+        "title": "CleanForce: Cleanup Record Types",
+        "icon": "$(list-unordered)"
+      },
+      {
+        "command": "cleanforce.cleanupListViews",
+        "title": "CleanForce: Cleanup List Views",
+        "icon": "$(list-flat)"
+      },
+      {
+        "command": "cleanforce.cleanupQuickActions",
+        "title": "CleanForce: Cleanup Quick Actions",
+        "icon": "$(rocket)"
+      },
+      {
+        "command": "cleanforce.cleanupReportTypes",
+        "title": "CleanForce: Cleanup Report Types",
+        "icon": "$(graph)"
+      },
+      {
+        "command": "cleanforce.dependencyGraph",
+        "title": "CleanForce: Show Dependency Graph",
+        "icon": "$(type-hierarchy)"
+      },
+      {
+        "command": "cleanforce.refreshExplorer",
+        "title": "Refresh",
+        "icon": "$(refresh)"
+      }
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "cleanforce",
+          "title": "CleanForce",
+          "icon": "resources/cleanforce-icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "cleanforce": [
+        {
+          "id": "cleanforceExplorer",
+          "name": "Metadata Explorer",
+          "icon": "$(folder)",
+          "contextualTitle": "CleanForce Explorer"
+        },
+        {
+          "id": "cleanforceQuickActions",
+          "name": "Quick Actions",
+          "icon": "$(zap)"
+        },
+        {
+          "id": "cleanforceHistory",
+          "name": "Operation History",
+          "icon": "$(history)"
+        },
+        {
+          "id": "cleanforceProblems",
+          "name": "Problems & Suggestions",
+          "icon": "$(warning)"
+        }
+      ]
+    },
+    "viewsWelcome": [
+      {
+        "view": "cleanforceExplorer",
+        "contents": "Welcome to CleanForce! 🧹⚡\n\nOpen a Salesforce project to get started.\n\n[Open Dashboard](command:cleanforce.openDashboard)\n\n[Scan for Issues](command:cleanforce.quickClean)"
+      }
+    ],
+    "menus": {
+      "view/title": [
+        {
+          "command": "cleanforce.refreshExplorer",
+          "when": "view == cleanforceExplorer",
+          "group": "navigation"
+        },
+        {
+          "command": "cleanforce.openDashboard",
+          "when": "view == cleanforceExplorer",
+          "group": "navigation"
+        }
+      ],
+      "explorer/context": [
+        {
+          "submenu": "cleanforce.submenu",
+          "when": "resourceExtname == .xml",
+          "group": "cleanforce@1"
+        }
+      ],
+      "editor/context": [
+        {
+          "submenu": "cleanforce.submenu",
+          "when": "resourceExtname == .xml",
+          "group": "cleanforce@1"
+        }
+      ],
+      "editor/title": [
+        {
+          "command": "cleanforce.removeFieldsFromFile",
+          "when": "resourceExtname == .xml",
+          "group": "navigation"
+        }
+      ],
+      "cleanforce.submenu": [
+        {
+          "command": "cleanforce.removeFieldsFromFile",
+          "group": "1_remove@1"
+        },
+        {
+          "command": "cleanforce.scanForReferences",
+          "group": "1_remove@2"
+        },
+        {
+          "command": "cleanforce.validateMetadata",
+          "group": "2_validate@1"
+        },
+        {
+          "command": "cleanforce.dependencyGraph",
+          "group": "3_analyze@1"
+        }
+      ],
+      "commandPalette": [
+        {
+          "command": "cleanforce.refreshExplorer",
+          "when": "false"
+        }
+      ]
+    },
+    "submenus": [
+      {
+        "id": "cleanforce.submenu",
+        "label": "CleanForce"
+      }
+    ],
+    "configuration": {
+      "title": "CleanForce",
+      "properties": {
+        "cleanforce.defaultObject": {
+          "type": "string",
+          "default": "",
+          "description": "Default object name for field operations (e.g., Case, Account)"
+        },
+        "cleanforce.createBackup": {
+          "type": "boolean",
+          "default": true,
+          "description": "Create backup files before making changes"
+        },
+        "cleanforce.backupLocation": {
+          "type": "string",
+          "default": ".cleanforce/backups",
+          "description": "Location for backup files (relative to workspace)"
+        },
+        "cleanforce.apiVersion": {
+          "type": "string",
+          "default": "59.0",
+          "description": "Salesforce API version for destructive changes"
+        },
+        "cleanforce.autoScan": {
+          "type": "boolean",
+          "default": true,
+          "description": "Automatically scan for issues when opening a project"
+        },
+        "cleanforce.showNotifications": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show notifications for operations"
+        },
+        "cleanforce.confirmBeforeDelete": {
+          "type": "boolean",
+          "default": true,
+          "description": "Ask for confirmation before deleting files"
+        },
+        "cleanforce.maxHistoryItems": {
+          "type": "number",
+          "default": 50,
+          "description": "Maximum number of items to keep in operation history"
+        },
+        "cleanforce.excludePatterns": {
+          "type": "array",
+          "default": [
+            "**/node_modules/**",
+            "**/.git/**",
+            "**/.sfdx/**"
+          ],
+          "description": "Glob patterns to exclude from scanning"
+        },
+        "cleanforce.supportedMetadataTypes": {
+          "type": "array",
+          "default": [
+            "permissionset",
+            "profile",
+            "layout",
+            "flexipage",
+            "flow",
+            "object",
+            "report",
+            "dashboard"
+          ],
+          "description": "Metadata types to include in scanning"
+        },
+        "cleanforce.theme": {
+          "type": "string",
+          "enum": [
+            "auto",
+            "light",
+            "dark"
+          ],
+          "default": "auto",
+          "description": "Theme for CleanForce dashboard"
+        },
+        "cleanforce.enableTelemetry": {
+          "type": "boolean",
+          "default": false,
+          "description": "Enable anonymous usage telemetry"
+        }
+      }
+    },
+    "keybindings": [
+      {
+        "command": "cleanforce.openDashboard",
+        "key": "ctrl+shift+c",
+        "mac": "cmd+shift+c",
+        "when": "editorTextFocus"
+      },
+      {
+        "command": "cleanforce.quickClean",
+        "key": "ctrl+shift+q",
+        "mac": "cmd+shift+q",
+        "when": "editorTextFocus"
+      },
+      {
+        "command": "cleanforce.undoLastOperation",
+        "key": "ctrl+shift+z",
+        "mac": "cmd+shift+z",
+        "when": "editorTextFocus && cleanforce.hasHistory"
+      }
+    ],
+    "colors": [
+      {
+        "id": "cleanforce.removedHighlight",
+        "description": "Background color for removed items",
+        "defaults": {
+          "dark": "#ff6b6b33",
+          "light": "#ff6b6b22",
+          "highContrast": "#ff0000"
+        }
+      },
+      {
+        "id": "cleanforce.warningHighlight",
+        "description": "Background color for warnings",
+        "defaults": {
+          "dark": "#ffd93d33",
+          "light": "#ffd93d22",
+          "highContrast": "#ffff00"
+        }
+      }
+    ],
+    "walkthroughs": [
+      {
+        "id": "cleanforce.welcome",
+        "title": "Get Started with CleanForce",
+        "description": "Learn how to clean up your Salesforce metadata like a pro",
+        "steps": [
+          {
+            "id": "openDashboard",
+            "title": "Open the Dashboard",
+            "description": "Access all CleanForce features from the interactive dashboard.\n\n[Open Dashboard](command:cleanforce.openDashboard)",
+            "media": {
+              "markdown": "images/walkthrough/dashboard.md"
+            }
+          },
+          {
+            "id": "scanProject",
+            "title": "Scan Your Project",
+            "description": "Let CleanForce analyze your project for cleanup opportunities.\n\n[Start Scan](command:cleanforce.quickClean)",
+            "media": {
+              "markdown": "images/walkthrough/scan.md"
+            }
+          },
+          {
+            "id": "removeFields",
+            "title": "Remove Field References",
+            "description": "Bulk remove field permissions from profiles and permission sets.\n\n[Remove Fields](command:cleanforce.removeFields)",
+            "media": {
+              "markdown": "images/walkthrough/remove.md"
+            }
+          },
+          {
+            "id": "generateDestructive",
+            "title": "Generate Destructive Changes",
+            "description": "Create deployment-ready destructive changes XML.\n\n[Generate](command:cleanforce.generateDestructiveChanges)",
+            "media": {
+              "markdown": "images/walkthrough/destructive.md"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js",
+    "package": "vsce package",
+    "publish": "vsce publish"
+  },
+  "devDependencies": {
+    "@types/glob": "^8.0.0",
+    "@types/mocha": "^10.0.1",
+    "@types/node": "^18.x",
+    "@types/vscode": "^1.74.0",
+    "@typescript-eslint/eslint-plugin": "^5.45.0",
+    "@typescript-eslint/parser": "^5.45.0",
+    "@vscode/test-electron": "^2.2.0",
+    "@vscode/vsce": "^2.21.0",
+    "eslint": "^8.28.0",
+    "glob": "^8.0.3",
+    "mocha": "^10.1.0",
+    "typescript": "^4.9.4"
+  },
+  "dependencies": {
+    "csv-parse": "^5.5.0",
+    "fast-xml-parser": "^4.3.2"
+  }
+}
