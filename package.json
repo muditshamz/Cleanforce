@@ -10,8 +10,8 @@
   "license": "MIT",
   "icon": "images/icon.png",
   "galleryBanner": {
-    "color": "#00A1E0",
-    "theme": "dark"
+    "color": "#e6e9eb",
+    "theme": "light"
   },
   "repository": {
     "type": "git",
