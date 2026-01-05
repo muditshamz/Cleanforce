@@ -15,12 +15,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/cleanforce/cleanforce-vscode"
+    "url": "https://github.com/muditshamz/Cleanforce"
   },
   "bugs": {
-    "url": "https://github.com/cleanforce/cleanforce-vscode/issues"
+    "url": "https://github.com/muditshamz/Cleanforce/issues"
   },
-  "homepage": "https://github.com/cleanforce/cleanforce-vscode#readme",
+  "homepage": "https://github.com/muditshamz/Cleanforce#readme",
   "engines": {
     "vscode": "^1.85.0"
   },
