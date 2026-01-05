@@ -2,7 +2,7 @@
   "name": "cleanforce",
   "displayName": "CleanForce - Salesforce Metadata Cleanup",
   "description": "🧹⚡ The ultimate Salesforce metadata cleanup tool. Remove field references, clean profiles & permission sets, generate destructive changes, analyze dependencies, and more. Save hours of manual work!",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "publisher": "cleanforce",
   "author": {
     "name": "CleanForce Team"
